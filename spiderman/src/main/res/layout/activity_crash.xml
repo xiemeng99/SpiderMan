@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="崩溃信息展示"
-            android:SimpleTextColor="@android:color/white"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
         <ImageView
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:SimpleTextColor="@color/SimpleTextColor"
+                android:textColor="@color/SimpleTextColor"
                 android:textSize="17sp" />
 
             <View
@@ -81,7 +81,7 @@
                     android:id="@+id/tv_packageName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="17sp" />
 
             </LinearLayout>
@@ -102,7 +102,7 @@
                     android:id="@+id/tv_className"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -123,7 +123,7 @@
                     android:id="@+id/tv_methodName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -144,7 +144,7 @@
                     android:id="@+id/tv_lineNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -165,7 +165,7 @@
                     android:id="@+id/tv_exceptionType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -186,7 +186,7 @@
                     android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -214,7 +214,7 @@
                     android:id="@+id/tv_model"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -235,7 +235,7 @@
                     android:id="@+id/tv_brand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -256,7 +256,7 @@
                     android:id="@+id/tv_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:SimpleTextColor="@color/SimpleTextColor"
+                    android:textColor="@color/SimpleTextColor"
                     android:textSize="@dimen/simple_text_item_size" />
 
             </LinearLayout>
@@ -278,7 +278,7 @@
                 android:id="@+id/tv_fullException"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:SimpleTextColor="@color/SimpleTextColor"
+                android:textColor="@color/SimpleTextColor"
                 android:textSize="@dimen/simple_text_item_size" />
         </LinearLayout>
     </ScrollView>
