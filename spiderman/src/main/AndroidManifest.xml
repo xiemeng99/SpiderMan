@@ -17,8 +17,7 @@
         </provider>
 
         <activity
-            android:name=".CrashActivity"
-            android:theme="@style/AppTheme">
+            android:name=".CrashActivity">
 
         </activity>
     </application>
