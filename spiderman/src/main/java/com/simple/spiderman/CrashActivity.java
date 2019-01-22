@@ -201,7 +201,7 @@ public class CrashActivity extends AppCompatActivity {
     }
 
     public Bitmap getBitmapByView(ScrollView view) {
-        if (view == null) return null;
+        if (view == null) {return null;}
         int height = 0;
         for (int i = 0; i < view.getChildCount(); i++) {
             height += view.getChildAt(i).getHeight();
@@ -214,7 +214,7 @@ public class CrashActivity extends AppCompatActivity {
     }
 
     private File BitmapToFile(Bitmap bitmap) {
-        if (bitmap == null) return null;
+        if (bitmap == null){ return null;}
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                 .getAbsolutePath();
         File imageFile = new File(path, "spiderMan-" + df.format(model.getTime()) + ".jpg");
