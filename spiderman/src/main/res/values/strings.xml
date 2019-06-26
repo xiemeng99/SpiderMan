@@ -3,4 +3,20 @@
     <string name="simpleCopyText">拷贝崩溃文本</string>
     <string name="simpleShareText">分享崩溃文本</string>
     <string name="simpleShareImage">分享崩溃图片</string>
+    <string name="copy_sucess">拷贝成功</string>
+    <string name="crash_info">崩溃信息:</string>
+    <string name="class_name">类名:</string>
+    <string name="method">方法:</string>
+    <string name="column_count">行数:</string>
+    <string name="type">类型:</string>
+    <string name="time">时间</string>
+    <string name="device_name">设备名称:</string>
+    <string name="device_manufacturer">设备厂商:</string>
+    <string name="system_version">系统版本:</string>
+    <string name="all_info">全部信息:</string>
+    <string name="share_to">分享到</string>
+    <string name="grant_SD_card_permission">请授予SD卡权限才能分享图片</string>
+    <string name="sd_card_not_inserted">未插入sd卡</string>
+    <string name="image_does_not_exist">图片文件不存在</string>
+    <string name="share_picture">分享图片</string>
 </resources>

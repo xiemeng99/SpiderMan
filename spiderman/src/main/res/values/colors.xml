@@ -4,4 +4,5 @@
     <color name="SimpleColorPrimaryDark">#008ee3</color>
     <color name="SimpleColorAccent">#008ee3</color>
     <color name="SimpleTextColor">#ff6090</color>
+    <color name="SimpleGray">#bbbbbb</color>
 </resources>

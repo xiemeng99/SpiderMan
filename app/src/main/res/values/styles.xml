@@ -3,7 +3,23 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="textAppearanceLargePopupMenu">@style/SimpleMyPopupMenuTextAppearanceLarge</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/SimpleMyPopupMenuTextAppearanceLarge</item>
 
+        <item name="textAppearanceSmallPopupMenu">@style/SimpleMyPopupMenuTextAppearanceSmall</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/SimpleMyPopupMenuTextAppearanceSmall</item>
+
+    </style>
+
+    <style name="SimpleMyPopupMenuTextAppearanceSmall" parent="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/SimpleColorPrimary</item>
+    </style>
+
+    <style name="SimpleMyPopupMenuTextAppearanceLarge" parent="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/SimpleColorPrimary</item>
     </style>
 
 </resources>

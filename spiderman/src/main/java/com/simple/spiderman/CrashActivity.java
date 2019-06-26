@@ -27,6 +27,7 @@ import android.widget.PopupMenu;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -60,6 +61,7 @@ public class CrashActivity extends AppCompatActivity {
 
         root = findViewById(R.id.root);
         TextView tv_packageName = findViewById(R.id.tv_packageName);
+        TextView tvVersionCode = findViewById(R.id.tv_version_code);
         TextView textMessage = findViewById(R.id.textMessage);
         TextView tv_className = findViewById(R.id.tv_className);
         TextView tv_methodName = findViewById(R.id.tv_methodName);
@@ -73,6 +75,7 @@ public class CrashActivity extends AppCompatActivity {
         ImageView iv_more = findViewById(R.id.iv_more);
 //
         tv_packageName.setText(model.getClassName());
+        tvVersionCode.setText(model.getVersionCode());
         textMessage.setText(model.getExceptionMsg());
         tv_className.setText(model.getFileName());
         tv_methodName.setText(model.getMethodName());
@@ -84,24 +87,25 @@ public class CrashActivity extends AppCompatActivity {
         tv_model.setText(model.getDevice().getModel());
         tv_brand.setText(model.getDevice().getBrand());
         tv_version.setText(model.getDevice().getVersion());
-
         iv_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenu menu = new PopupMenu(CrashActivity.this, v);
+
                 menu.inflate(R.menu.menu_more);
                 menu.show();
                 menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
+
                         if (id == R.id.menu_copy_text) {
                             String crashText = getShareText(model);
                             ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                             if (cm != null) {
                                 ClipData mClipData = ClipData.newPlainText("crash", crashText);
                                 cm.setPrimaryClip(mClipData);
-                                showToast("拷贝成功");
+                                showToast(getString(R.string.copy_sucess));
                             }
                         } else if (id == R.id.menu_share_text) {
                             String crashText = getShareText(model);
@@ -129,38 +133,38 @@ public class CrashActivity extends AppCompatActivity {
     private String getShareText(CrashModel model) {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("崩溃信息:")
+        builder.append(R.string.crash_info)
                 .append("\n")
                 .append(model.getExceptionMsg())
                 .append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("类名:")
+        builder.append(R.string.class_name)
                 .append(model.getFileName()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("方法:").append(model.getMethodName()).append("\n");
+        builder.append(R.string.method).append(model.getMethodName()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("行数:").append(model.getLineNumber()).append("\n");
+        builder.append(R.string.column_count).append(model.getLineNumber()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("类型:").append(model.getExceptionType()).append("\n");
+        builder.append(R.string.type).append(model.getExceptionType()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("时间").append(df.format(model.getTime())).append("\n");
+        builder.append(R.string.time).append(df.format(model.getTime())).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("设备名称:").append(model.getDevice().getModel()).append("\n");
+        builder.append(R.string.device_name).append(model.getDevice().getModel()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("设备厂商:").append(model.getDevice().getBrand()).append("\n");
+        builder.append(R.string.device_manufacturer).append(model.getDevice().getBrand()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("系统版本:").append(model.getDevice().getVersion()).append("\n");
+        builder.append(R.string.system_version).append(model.getDevice().getVersion()).append("\n");
         builder.append("\n");//空一行，好看点，(#^.^#)
 
-        builder.append("全部信息:")
+        builder.append(R.string.all_info)
                 .append("\n")
                 .append(model.getFullException()).append("\n");
 
@@ -170,10 +174,10 @@ public class CrashActivity extends AppCompatActivity {
     private void shareText(String text) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "崩溃信息：");
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crash_info));
         intent.putExtra(Intent.EXTRA_TEXT, text);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(Intent.createChooser(intent, "分享到"));
+        startActivity(Intent.createChooser(intent, getString(R.string.share_to)));
     }
 
     private static final int REQUEST_CODE = 110;
@@ -193,7 +197,7 @@ public class CrashActivity extends AppCompatActivity {
                 shareImage();
             } else {
                 //授权失败
-                showToast("请授予SD卡权限才能分享图片");
+                showToast(getString(R.string.grant_SD_card_permission));
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -201,7 +205,9 @@ public class CrashActivity extends AppCompatActivity {
     }
 
     public Bitmap getBitmapByView(ScrollView view) {
-        if (view == null) {return null;}
+        if (view == null) {
+            return null;
+        }
         int height = 0;
         for (int i = 0; i < view.getChildCount(); i++) {
             height += view.getChildAt(i).getHeight();
@@ -214,7 +220,9 @@ public class CrashActivity extends AppCompatActivity {
     }
 
     private File BitmapToFile(Bitmap bitmap) {
-        if (bitmap == null){ return null;}
+        if (bitmap == null) {
+            return null;
+        }
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
                 .getAbsolutePath();
         File imageFile = new File(path, "spiderMan-" + df.format(model.getTime()) + ".jpg");
@@ -234,12 +242,12 @@ public class CrashActivity extends AppCompatActivity {
 
     private void shareImage() {
         if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            showToast("未插入sd卡");
+            showToast(getString(R.string.sd_card_not_inserted));
             return;
         }
         File file = BitmapToFile(getBitmapByView((ScrollView) findViewById(R.id.scrollView)));
         if (file == null || !file.exists()) {
-            showToast("图片文件不存在");
+            showToast(getString(R.string.image_does_not_exist));
             return;
         }
 
@@ -255,7 +263,7 @@ public class CrashActivity extends AppCompatActivity {
         }
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(intent, "分享图片"));
+        startActivity(Intent.createChooser(intent, getString(R.string.share_picture)));
     }
 
     private void showToast(String text) {

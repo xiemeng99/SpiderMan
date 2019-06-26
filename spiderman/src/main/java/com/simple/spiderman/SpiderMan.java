@@ -14,6 +14,8 @@ public class SpiderMan implements Thread.UncaughtExceptionHandler {
     private static SpiderMan spiderMan = new SpiderMan();
 
     private static Context mContext;
+
+    private static String mVersionCode;
     private Thread.UncaughtExceptionHandler mExceptionHandler;
 //    private OnCrashListener mOnCrashListener;
 
@@ -24,6 +26,12 @@ public class SpiderMan implements Thread.UncaughtExceptionHandler {
 
     public static SpiderMan init(Context context) {
         mContext = context;
+        return spiderMan;
+    }
+
+    public static SpiderMan init(Context context, String versionCode) {
+        mContext = context;
+        mVersionCode = versionCode;
         return spiderMan;
     }
 
@@ -69,6 +77,7 @@ public class SpiderMan implements Thread.UncaughtExceptionHandler {
                 model.setClassName(element.getClassName());
                 model.setFileName(element.getFileName());
                 model.setMethodName(element.getMethodName());
+                model.setVersionCode(mVersionCode);
                 model.setExceptionType(exceptionType);
             }
 

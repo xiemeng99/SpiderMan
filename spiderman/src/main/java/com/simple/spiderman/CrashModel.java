@@ -51,6 +51,8 @@ public class CrashModel implements Parcelable {
      * 崩溃时间
      */
     private long time;
+
+    private String versionCode;
     /**
      * 设备信息
      */
@@ -161,6 +163,14 @@ public class CrashModel implements Parcelable {
 
     public Device getDevice() {
         return device;
+    }
+
+    public String getVersionCode() {
+        return versionCode;
+    }
+
+    public void setVersionCode(String versionCode) {
+        this.versionCode = versionCode;
     }
 
     @Override
