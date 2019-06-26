@@ -58,7 +58,7 @@ public class CrashActivity extends AppCompatActivity {
             return;
         }
         Log.e("SpiderMan", Log.getStackTraceString(model.getEx()));
-
+        Log.e("SpiderMan", model.getVersionCode()+"---");
         root = findViewById(R.id.root);
         TextView tv_packageName = findViewById(R.id.tv_packageName);
         TextView tvVersionCode = findViewById(R.id.tv_version_code);

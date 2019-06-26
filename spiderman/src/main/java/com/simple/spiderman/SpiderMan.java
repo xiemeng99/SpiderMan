@@ -63,6 +63,7 @@ public class SpiderMan implements Thread.UncaughtExceptionHandler {
             if (ex.getCause() != null) {
                 ex = ex.getCause();
             }
+            model.setVersionCode(mVersionCode);
             model.setExceptionMsg(ex.getMessage());
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -77,7 +78,6 @@ public class SpiderMan implements Thread.UncaughtExceptionHandler {
                 model.setClassName(element.getClassName());
                 model.setFileName(element.getFileName());
                 model.setMethodName(element.getMethodName());
-                model.setVersionCode(mVersionCode);
                 model.setExceptionType(exceptionType);
             }
 

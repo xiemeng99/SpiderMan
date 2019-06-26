@@ -68,6 +68,7 @@ public class CrashModel implements Parcelable {
         exceptionType = in.readString();
         fullException = in.readString();
         time = in.readLong();
+        versionCode=in.readString();
     }
 
     public CrashModel() {
@@ -189,6 +190,7 @@ public class CrashModel implements Parcelable {
         dest.writeString(exceptionType);
         dest.writeString(fullException);
         dest.writeLong(time);
+        dest.writeString(versionCode);
     }
 
     public static class Device implements Parcelable {
